@@ -82,7 +82,7 @@ def get_main_parser():
     parser_dl_docs.add_argument('output', help='Output directory', metavar='PATH', type=Path)
     parser_dl_docs.add_argument(
         '--format',
-        help='available variables:\tevent_timestamp_iso, event_date_utc, event_date_utc, event_date_local, event_time_local, iso_date, time, title, doc_num, subtitle, id',
+        help='available variables:\tevent_timestamp_iso, event_date_local, event_date_utc, event_time_local, event_time_utc, iso_date, time, title, doc_num, subtitle, id',
         metavar='FORMAT_STRING',
         default='{event_date_local} {event_time_utc} - {title}{doc_num}',
     )
