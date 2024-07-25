@@ -3,66 +3,124 @@
   "configurations": [
     {
       "name": "details",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["-v", "debug", "details", "DE0006231004"]
+      "args": [
+        "-v",
+        "debug",
+        "details",
+        "DE0006231004"
+      ]
     },
     {
       "name": "portfolio",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["-v", "debug", "portfolio"]
+      "args": [
+        "-v",
+        "debug",
+        "portfolio"
+      ]
     },
     {
       "name": "get_price_alarms",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["-v", "debug", "get_price_alarms"]
+      "args": [
+        "-v",
+        "debug",
+        "get_price_alarms"
+      ]
     },
     {
       "name": "set_price_alarms",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["-v", "debug", "set_price_alarms"]
+      "args": [
+        "-v",
+        "debug",
+        "set_price_alarms"
+      ]
     },
     {
       "name": "login",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["-v", "debug", "login"]
-    },
-    {
-      "name": "dl_docs debug",
-      "type": "python",
-      "request": "launch",
-      "module": "pytr",
-      "args": ["-v", "debug", "dl_docs", "dldocs_debug"]
+      "args": [
+        "-v",
+        "debug",
+        "login"
+      ]
     },
     {
       "name": "dl_docs",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["dl_docs", "dldocs"]
+      "args": [
+        "dl_docs",
+        "dldocs"
+      ]
     },
     {
       "name": "dl_docs 20 days",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["dl_docs", "dldocs", "--last_days", "20"]
+      "args": [
+        "dl_docs",
+        "dldocs",
+        "--last_days",
+        "20"
+      ]
     },
     {
-      "name": "dl_docs 2 days debug",
-      "type": "python",
+      "name": "dl_docs debug",
+      "type": "debugpy",
       "request": "launch",
       "module": "pytr",
-      "args": ["-v", "debug", "dl_docs", "dldocs_debug", "--last_days", "2"]
+      "args": [
+        "-v",
+        "debug",
+        "dl_docs",
+        "dldocs_debug"
+      ]
+    },
+    {
+      "name": "dl_docs debug 2 days debug",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytr",
+      "args": [
+        "-v",
+        "debug",
+        "dl_docs",
+        "dldocs_debug",
+        "--last_days",
+        "2"
+      ]
+    },
+    {
+      "name": "dl_docs 7 days debug, using event timestamp derived date/time for filename",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "pytr",
+      "args": [
+        "-v",
+        "debug",
+        "dl_docs",
+        "dldocs_debug",
+        "--last_days",
+        "7",
+        "--universal",
+        "--format",
+        "{event_date_local}-{event_time_local} {title}{doc_num}"
+      ]
     }
   ]
 }
