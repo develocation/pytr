@@ -36,6 +36,10 @@ MANIFEST
 pip-log.txt
 pip-delete-this-directory.txt
 
+# Download directories configured in "launch.json"
+dldocs/
+dldocs_debug/
+
 # Unit test / coverage reports
 htmlcov/
 .tox/
