@@ -82,9 +82,9 @@ def get_main_parser():
     parser_dl_docs.add_argument('output', help='Output directory', metavar='PATH', type=Path)
     parser_dl_docs.add_argument(
         '--format',
-        help='available variables:\tiso_date, time, title, doc_num, subtitle, id',
+        help='available variables:\tevent_timestamp_iso, event_date_utc, event_date_utc, event_date_local, event_time_local, iso_date, time, title, doc_num, subtitle, id',
         metavar='FORMAT_STRING',
-        default='{iso_date}{time} {title}{doc_num}',
+        default='{event_date_local} {event_time_utc} - {title}{doc_num}',
     )
     parser_dl_docs.add_argument(
         '--last_days', help='Number of last days to include (use 0 get all days)', metavar='DAYS', default=0, type=int

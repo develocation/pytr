@@ -152,7 +152,7 @@ class Timeline:
                     title = f"{doc['title']} - {event['title']}"
                     if event['eventType'] in ["ACCOUNT_TRANSFER_INCOMING", "ACCOUNT_TRANSFER_OUTGOING", "CREDIT"]:
                         title += f" - {event['subtitle']}"
-                    dl.dl_doc(doc, title, doc.get('detail'), subfolder)
+                    dl.dl_doc(event, doc, title, doc.get('detail'), subfolder)
 
         if event['has_docs']:
             self.events_with_docs.append(event)

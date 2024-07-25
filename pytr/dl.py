@@ -4,6 +4,8 @@ from concurrent.futures import as_completed
 from pathlib import Path
 from requests_futures.sessions import FuturesSession
 from requests import session
+from datetime import timezone
+from dateutil import parser
 
 from pathvalidate import sanitize_filepath
 
@@ -83,10 +85,20 @@ class DL:
             else:
                 self.log.warning(f"unmatched subscription of type '{subscription['type']}':\n{preview(response)}")
 
-    def dl_doc(self, doc, titleText, subtitleText, subfolder=None):
+    def dl_doc(self, event, doc, titleText, subtitleText, subfolder=None):
         '''
         send asynchronous request, append future with filepath to self.futures
         '''
+        event_timestamp_iso = event['timestamp']
+        try:
+            event_timestamp = parser.isoparse(event_timestamp_iso)
+            event_date_local = event_timestamp.astimezone(tz=None).strftime("%Y-%m-%d")
+            event_date_utc = event_timestamp.astimezone(tz=timezone.utc).strftime("%Y-%m-%d")
+            event_time_local = event_timestamp.astimezone(tz=None).strftime("%H:%M:%S")
+            event_time_utc = event_timestamp.astimezone(tz=timezone.utc).strftime("%H:%M:%S")
+        except parser.ParserError:
+            timestamp = None
+
         doc_url = doc['action']['payload']
         if subtitleText is None:
             subtitleText = ''
@@ -126,6 +138,10 @@ class DL:
         subtitleText = subtitleText.replace('\n', '').replace('/', '-')
 
         filename = self.filename_fmt.format(
+            event_timestamp_iso=event_timestamp_iso,
+            event_date_local=event_date_local, event_time_local=event_time_local,
+            event_date_utc=event_date_utc, event_time_utc=event_time_utc,
+
             iso_date=iso_date, time=time, title=titleText, subtitle=subtitleText, doc_num=doc_type_num, id=doc_id
         )
 
